@@ -42,37 +42,35 @@
             <section class="products-section">
                 <div class="products-layout">
                     <!-- Filters Sidebar -->
-                    <aside class="filters-sidebar">
-                        <div class="filters-header">
-                            <h3 data-key="filters.title">Filter:</h3>
-                            <button class="filters-toggle" id="filtersToggle">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        <div class="filters-content" id="filtersContent">
-                            <!-- Brand Filter -->
-                         
+                 <!-- Filters Sidebar -->
+<aside class="filters-sidebar">
+  <div class="filters-header">
+      <h3 data-key="filters.title">Filter:</h3>
+      <button class="filters-toggle" id="filtersToggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+      </button>
+  </div>
+  
+  <div class="filters-content" id="filtersContent">
+      <!-- Price Filter -->
+      <div class="filter-group">
+          <h4 class="filter-title" data-key="filters.price">Preis</h4>
+          <div class="price-range">
+              <div class="price-inputs">
+                  <input type="number" id="minPrice" placeholder="Min" class="price-input">
+                  <span>-</span>
+                  <input type="number" id="maxPrice" placeholder="Max" class="price-input">
+              </div>
+              <button class="apply-price-btn" id="applyPriceFilter" data-key="filters.apply">Anwenden</button>
+          </div>
+      </div>
 
-                            <!-- Price Filter -->
-                            <div class="filter-group">
-                                <h4 class="filter-title" data-key="filters.price">Preis</h4>
-                                <div class="price-range">
-                                    <div class="price-inputs">
-                                        <input type="number" id="minPrice" placeholder="Min" class="price-input">
-                                        <span>-</span>
-                                        <input type="number" id="maxPrice" placeholder="Max" class="price-input">
-                                    </div>
-                                    <button class="apply-price-btn" id="applyPriceFilter" data-key="filters.apply">Anwenden</button>
-                                </div>
-                            </div>
-
-                            <!-- Clear Filters -->
-                            <button class="clear-filters-btn" id="clearFilters" data-key="filters.clear">Filter zurücksetzen</button>
-                        </div>
-                    </aside>
+      <!-- Clear Filters -->
+      <button class="clear-filters-btn" id="clearFilters" data-key="filters.clear">Filter zurücksetzen</button>
+  </div>
+</aside>
 
                     <!-- Products Content -->
                     <div class="products-content">

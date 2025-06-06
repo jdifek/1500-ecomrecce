@@ -4,8 +4,6 @@ let filteredProducts = [];
 let cart = [];
 let currentLanguage = 'de';
 let currentFilters = {
-    brands: [],
-    categories: [],
     minPrice: null,
     maxPrice: null
 };
@@ -19,8 +17,6 @@ const translations = {
         'products.title': 'Unsere Produkte',
         'products.results': 'Produkte',
         'filters.title': 'Filter',
-        'filters.brand': 'Marke',
-        'filters.category': 'Kategorie',
         'filters.price': 'Preis',
         'filters.apply': 'Anwenden',
         'filters.clear': 'Filter zurücksetzen',
@@ -85,8 +81,6 @@ const translations = {
         'products.title': 'Our Products',
         'products.results': 'Products',
         'filters.title': 'Filters',
-        'filters.brand': 'Brand',
-        'filters.category': 'Category',
         'filters.price': 'Price',
         'filters.apply': 'Apply',
         'filters.clear': 'Clear Filters',
@@ -167,8 +161,6 @@ const cardPayBtn = document.getElementById('cardPayBtn');
 const langBtns = document.querySelectorAll('.lang-btn');
 const filtersToggle = document.getElementById('filtersToggle');
 const filtersContent = document.getElementById('filtersContent');
-const brandFilters = document.getElementById('brandFilters');
-const categoryFilters = document.getElementById('categoryFilters');
 const minPriceInput = document.getElementById('minPrice');
 const maxPriceInput = document.getElementById('maxPrice');
 const applyPriceBtn = document.getElementById('applyPriceFilter');
@@ -208,7 +200,6 @@ async function loadProducts() {
         const response = await fetch('/products.json');
         products = await response.json();
         filteredProducts = [...products];
-        initializeFilters();
         renderProducts();
         updateResultsCount();
     } catch (error) {
@@ -217,50 +208,7 @@ async function loadProducts() {
     }
 }
 
-// Initialize filter options
-function initializeFilters() {
-    // Get unique brands and categories
-    const brands = [...new Set(products.map(p => p.brand))].sort();
-    const categories = [...new Set(products.map(p => p.category))].sort();
-    
-    // Render brand filters
-    brandFilters.innerHTML = brands.map(brand => `
-        <div class="filter-option">
-            <input type="checkbox" id="brand-${brand}" value="${brand}" onchange="handleBrandFilter('${brand}', this.checked)">
-            <label for="brand-${brand}">${brand}</label>
-            <span class="filter-count">(${products.filter(p => p.brand === brand).length})</span>
-        </div>
-    `).join('');
-    
-    // Render category filters
-    categoryFilters.innerHTML = categories.map(category => `
-        <div class="filter-option">
-            <input type="checkbox" id="category-${category}" value="${category}" onchange="handleCategoryFilter('${category}', this.checked)">
-            <label for="category-${category}">${category}</label>
-            <span class="filter-count">(${products.filter(p => p.category === category).length})</span>
-        </div>
-    `).join('');
-}
-
 // Filter functions
-function handleBrandFilter(brand, checked) {
-    if (checked) {
-        currentFilters.brands.push(brand);
-    } else {
-        currentFilters.brands = currentFilters.brands.filter(b => b !== brand);
-    }
-    applyFilters();
-}
-
-function handleCategoryFilter(category, checked) {
-    if (checked) {
-        currentFilters.categories.push(category);
-    } else {
-        currentFilters.categories = currentFilters.categories.filter(c => c !== category);
-    }
-    applyFilters();
-}
-
 function applyPriceFilter() {
     const minPrice = parseFloat(minPriceInput.value) || null;
     const maxPrice = parseFloat(maxPriceInput.value) || null;
@@ -273,16 +221,6 @@ function applyPriceFilter() {
 
 function applyFilters() {
     filteredProducts = products.filter(product => {
-        // Brand filter
-        if (currentFilters.brands.length > 0 && !currentFilters.brands.includes(product.brand)) {
-            return false;
-        }
-        
-        // Category filter
-        if (currentFilters.categories.length > 0 && !currentFilters.categories.includes(product.category)) {
-            return false;
-        }
-        
         // Price filter
         if (currentFilters.minPrice !== null && product.price < currentFilters.minPrice) {
             return false;
@@ -303,14 +241,11 @@ function applyFilters() {
 function clearAllFilters() {
     // Reset filters
     currentFilters = {
-        brands: [],
-        categories: [],
         minPrice: null,
         maxPrice: null
     };
     
     // Clear form inputs
-    document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(cb => cb.checked = false);
     minPriceInput.value = '';
     maxPriceInput.value = '';
     
@@ -469,7 +404,9 @@ function updateCartDisplay() {
     }
     
     // Update total
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const total = cart.reduce((sum, item) => sum + (item
+
+.price * item.quantity), 0);
     totalAmount.textContent = `€${total.toFixed(2)}`;
     
     // Enable/disable checkout button
@@ -665,7 +602,7 @@ function updateLanguage() {
     const elementsToTranslate = document.querySelectorAll('[data-key]');
     
     elementsToTranslate.forEach(element => {
-        const key = element.getAttribute('data-key');
+        const key = element.getElementById('data-key');
         if (translations[currentLanguage][key]) {
             if (element.tagName === 'INPUT' && element.type === 'email') {
                 element.placeholder = translations[currentLanguage][key];
