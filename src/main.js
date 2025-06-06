@@ -291,45 +291,49 @@ function updateResultsCount() {
 function renderProducts() {
   if (filteredProducts.length === 0) {
     productsGrid.innerHTML = `
-            <div class="no-results">
-                <h3 data-key="noResults.title">${translations[currentLanguage]['noResults.title']}</h3>
-                <p data-key="noResults.text">${translations[currentLanguage]['noResults.text']}</p>
-            </div>
-        `;
+      <div class="no-results">
+        <h3 data-key="noResults.title">${translations[currentLanguage]['noResults.title']}</h3>
+        <p data-key="noResults.text">${translations[currentLanguage]['noResults.text']}</p>
+      </div>
+    `;
     return;
   }
 
-  productsGrid.innerHTML = '';
-
-  filteredProducts.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.className = 'product-card';
-
-    productCard.innerHTML = `
-            <div class="product-icon">
-        
-            </div>
-            <img src="${product.image}" alt="${product.name[currentLanguage]}" class="product-image">
-            <div class="product-info">
-          <h3 class="product-name">${product.name[currentLanguage]}</h3>
-          <p class="product-description">${product.description[currentLanguage]}</p>
-          <div class="product-footer">
-              <span class="product-price">€${product.price.toFixed(2)}</span>
-              <button class="add-to-cart" onclick="addToCart(${product.id})" data-key="cart.addToCart">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  productsGrid.innerHTML = filteredProducts.map(product => `
+    <div class="product-card">
+      <div class="product-icon"></div>
+      <img src="${product.image}" alt="${product.name[currentLanguage]}" class="product-image">
+      <div class="product-info">
+        <h3 class="product-name">${product.name[currentLanguage]}</h3>
+        <p class="product-description">${product.description[currentLanguage]}</p>
+        <div class="product-footer">
+          <span class="product-price">€${product.price.toFixed(2)}</span>
+          <button class="add-to-cart" data-id="${product.id}" data-key="cart.addToCart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="9" cy="21" r="1" />
               <circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-          </svg>
+            </svg>
             ${translations[currentLanguage]['cart.addToCart']}
-              </button>
-          </div>
-            </div>
-        `;
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
 
-    productsGrid.appendChild(productCard);
-  });
+  // Удаляем старые слушатели событий, чтобы избежать дублирования
+  productsGrid.removeEventListener('click', handleAddToCartClick);
+  // Добавляем делегирование событий для кнопок "Add to Cart"
+  productsGrid.addEventListener('click', handleAddToCartClick);
+}
+
+// Новая функция для обработки кликов по кнопкам "Add to Cart"
+function handleAddToCartClick(e) {
+  const addToCartBtn = e.target.closest('.add-to-cart');
+  if (addToCartBtn) {
+    const productId = parseInt(addToCartBtn.dataset.id);
+    addToCart(productId);
+  }
 }
 
 // Cart functions
@@ -337,27 +341,31 @@ function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   const existingItem = cart.find(item => item.id === productId);
 
-  if (existingItem) {
-    existingItem.quantity += 1;
+  if (product) {
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        ...product,
+        quantity: 1
+      });
+    }
+
+    updateCartDisplay();
+
+    // Visual feedback
+    const button = event.target.closest('button');
+    const originalText = button.textContent;
+    button.textContent = currentLanguage === 'de' ? 'Hinzugefügt!' : 'Added!';
+    button.style.background = '#059669';
+
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.style.background = '#2563eb';
+    }, 1000);
   } else {
-    cart.push({
-      ...product,
-      quantity: 1
-    });
+    console.error(`Product with ID ${productId} not found`);
   }
-
-  updateCartDisplay();
-
-  // Add visual feedback
-  const button = event.target;
-  const originalText = button.textContent;
-  button.textContent = currentLanguage === 'de' ? 'Hinzugefügt!' : 'Added!';
-  button.style.background = '#059669';
-
-  setTimeout(() => {
-    button.textContent = originalText;
-    button.style.background = '#2563eb';
-  }, 1000);
 }
 
 function removeFromCart(productId) {
@@ -385,41 +393,61 @@ function updateCartDisplay() {
   // Update cart items
   if (cart.length === 0) {
     cartItems.innerHTML = `
-            <div class="empty-cart">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="m1 1 4 4 9.5 9.5a2 2 0 0 0 2.83 0L21 11H7l-2-2H1"></path>
-                </svg>
-                <p data-key="cart.empty">${translations[currentLanguage]['cart.empty']}</p>
-            </div>
-        `;
+      <div class="empty-cart">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="m1 1 4 4 9.5 9.5a2 2 0 0 0 2.83 0L21 11H7l-2-2H1"></path>
+        </svg>
+        <p data-key="cart.empty">${translations[currentLanguage]['cart.empty']}</p>
+      </div>
+    `;
   } else {
     cartItems.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.name[currentLanguage]}" class="cart-item-image">
-                <div class="cart-item-info">
-                    <div class="cart-item-name">${item.name[currentLanguage]}</div>
-                    <div class="cart-item-price">€${item.price.toFixed(2)}</div>
-                    <div class="cart-item-controls">
-                        <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                        <button class="remove-item" onclick="removeFromCart(${item.id})">Remove</button>
-                    </div>
-                </div>
-            </div>
-        `).join('');
+      <div class="cart-item" data-id="${item.id}">
+        <img src="${item.image}" alt="${item.name[currentLanguage]}" class="cart-item-image">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name[currentLanguage]}</div>
+          <div class="cart-item-price">€${item.price.toFixed(2)}</div>
+          <div class="cart-item-controls">
+            <button class="quantity-btn decrease-btn">-</button>
+            <span class="quantity">${item.quantity}</span>
+            <button class="quantity-btn increase-btn">+</button>
+            <button class="remove-item">Remove</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
   }
 
   // Update total
-  const total = cart.reduce((sum, item) => sum + (item
-
-    .price * item.quantity), 0);
+  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   totalAmount.textContent = `€${total.toFixed(2)}`;
 
   // Enable/disable checkout button
   checkoutBtn.disabled = cart.length === 0;
+
+  // Удаляем старые слушатели, чтобы избежать дублирования
+  cartItems.removeEventListener('click', handleCartActions);
+  // Добавляем делегирование событий для кнопок в корзине
+  cartItems.addEventListener('click', handleCartActions);
+}
+
+// Новая функция для обработки кликов в корзине
+function handleCartActions(e) {
+  const target = e.target;
+  const cartItem = target.closest('.cart-item');
+  if (!cartItem) return;
+
+  const productId = parseInt(cartItem.dataset.id);
+
+  if (target.classList.contains('remove-item')) {
+    removeFromCart(productId);
+  } else if (target.classList.contains('increase-btn')) {
+    updateQuantity(productId, 1);
+  } else if (target.classList.contains('decrease-btn')) {
+    updateQuantity(productId, -1);
+  }
 }
 
 // Cart modal functions
