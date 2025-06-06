@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Load products from JSON
 async function loadProducts() {
     try {
-        const response = await fetch('src/products.json');
+        const response = await fetch('/products.json');
         products = await response.json();
         filteredProducts = [...products];
         initializeFilters();
