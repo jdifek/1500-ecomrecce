@@ -6,10 +6,9 @@
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
-  color: #1f2937;
+  color: #374151; /* Dark gray for body text */
   background-color: #ffffff;
 }
 
@@ -39,7 +38,7 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2563eb;
+  color: #374151; /* Dark gray logo */
 }
 
 .header-actions {
@@ -67,13 +66,13 @@ body {
 
 .lang-btn.active {
   background: #ffffff;
-  color: #2563eb;
+  color: #374151; /* Dark gray for active language button */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .cart-toggle {
   position: relative;
-  background: #2563eb;
+  background: #374151; /* Dark gray for cart button */
   color: white;
   border: none;
   padding: 0.75rem;
@@ -83,7 +82,7 @@ body {
 }
 
 .cart-toggle:hover {
-  background: #1d4ed8;
+  background: #4b5563; /* Slightly lighter gray on hover */
   transform: translateY(-1px);
 }
 
@@ -113,13 +112,13 @@ body {
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #374151; /* Dark gray for headings */
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #6b7280;
+  color: #6b7280; /* Lighter gray for subtitles */
   font-weight: 400;
 }
 
@@ -154,7 +153,7 @@ body {
 .filters-header h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #374151;
 }
 
 .filters-toggle {
@@ -198,7 +197,7 @@ body {
 .filter-option input[type="checkbox"] {
   width: 16px;
   height: 16px;
-  accent-color: #2563eb;
+  accent-color: #374151; /* Dark gray for checkboxes */
 }
 
 .filter-option label {
@@ -237,12 +236,12 @@ body {
 
 .price-input:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #374151; /* Dark gray for focus */
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.1); /* Adjusted shadow */
 }
 
 .apply-price-btn {
-  background: #2563eb;
+  background: #374151; /* Dark gray for buttons */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -253,7 +252,7 @@ body {
 }
 
 .apply-price-btn:hover {
-  background: #1d4ed8;
+  background: #4b5563; /* Slightly lighter gray on hover */
 }
 
 .clear-filters-btn {
@@ -288,6 +287,7 @@ body {
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
+  color: #374151;
 }
 
 .products-controls {
@@ -307,8 +307,8 @@ body {
 
 .sort-select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #374151;
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.1);
 }
 
 .results-count {
@@ -351,7 +351,7 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #1f2937;
+  color: #374151;
 }
 
 .product-description {
@@ -369,11 +369,11 @@ body {
 .product-price {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #059669;
+  color: #059669; /* Keep green for prices */
 }
 
 .add-to-cart {
-  background: #2563eb;
+  background: #374151; /* Dark gray for buttons */
   color: white;
   display: flex;
   align-items: center;
@@ -387,138 +387,37 @@ body {
 }
 
 .add-to-cart:hover {
-  background: #1d4ed8;
+  background: #4b5563; /* Slightly lighter gray on hover */
   transform: translateY(-1px);
 }
 
 /* Footer */
 .footer {
-  background: #1f2937;
-  color: #f9fafb;
-  margin-top: 4rem;
+  background: #000000;
+  color: #ffffff;
+  padding: 1rem 0;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 3rem 0;
+  text-align: center;
 }
 
-.footer-section h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-  color: #d1d5db;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-section ul li a:hover {
-  color: #ffffff;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.newsletter-input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 1px solid #374151;
-  border-radius: 8px;
-  background: #374151;
-  color: #f9fafb;
-}
-
-.newsletter-input::placeholder {
-  color: #9ca3af;
-}
-
-.newsletter-input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.newsletter-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.newsletter-btn:hover {
-  background: #1d4ed8;
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #374151;
-  color: #d1d5db;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.social-link:hover {
-  background: #2563eb;
-  color: #ffffff;
-}
-
-.footer-bottom {
-  border-top: 1px solid #374151;
-  padding: 1.5rem 0;
-}
-
-.footer-bottom-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+.footer-content p {
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 .payment-methods {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.payment-icons {
-  display: flex;
-  gap: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .payment-icon {
-  font-size: 1.25rem;
+  height: 20px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
 }
 
 /* Cart Sidebar */
@@ -551,6 +450,7 @@ body {
 .cart-header h3 {
   font-size: 1.25rem;
   font-weight: 600;
+  color: #374151;
 }
 
 .cart-close {
@@ -600,6 +500,7 @@ body {
 .cart-item-name {
   font-weight: 500;
   margin-bottom: 0.25rem;
+  color: #374151;
 }
 
 .cart-item-price {
@@ -665,6 +566,7 @@ body {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: 600;
+  color: #374151;
 }
 
 .checkout-btn {
@@ -739,6 +641,7 @@ body {
 .modal-header h3 {
   font-size: 1.5rem;
   font-weight: 600;
+  color: #374151;
 }
 
 .modal-close {
@@ -800,8 +703,8 @@ body {
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #374151;
+  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.1);
 }
 
 .delivery-options {
@@ -822,7 +725,7 @@ body {
 }
 
 .radio-option:hover {
-  border-color: #2563eb;
+  border-color: #374151;
   background: #f8fafc;
 }
 
@@ -840,7 +743,7 @@ body {
 }
 
 .radio-option input[type="radio"]:checked + .radio-custom {
-  border-color: #2563eb;
+  border-color: #374151;
 }
 
 .radio-option input[type="radio"]:checked + .radio-custom::after {
@@ -851,13 +754,13 @@ body {
   transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  background: #2563eb;
+  background: #374151;
   border-radius: 50%;
 }
 
 .submit-btn {
   width: 100%;
-  background: #2563eb;
+  background: #374151;
   color: white;
   border: none;
   padding: 1rem;
@@ -869,7 +772,7 @@ body {
 }
 
 .submit-btn:hover {
-  background: #1d4ed8;
+  background: #4b5563;
   transform: translateY(-1px);
 }
 
@@ -890,19 +793,20 @@ body {
 }
 
 .payment-option:hover {
-  border-color: #2563eb;
+  border-color: #374151;
   background: #f8fafc;
 }
 
 .payment-icon {
   margin-bottom: 1rem;
-  color: #2563eb;
+  color: #374151;
 }
 
 .payment-option h4 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: #374151;
 }
 
 .payment-option p {
@@ -912,7 +816,7 @@ body {
 }
 
 .payment-btn {
-  background: #2563eb;
+  background: #374151;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -923,7 +827,7 @@ body {
 }
 
 .payment-btn:hover {
-  background: #1d4ed8;
+  background: #4b5563;
   transform: translateY(-1px);
 }
 
@@ -1038,16 +942,6 @@ body {
     width: 100%;
     justify-content: space-between;
   }
-
-  .footer-content {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1085,7 +979,7 @@ body {
   width: 40px;
   height: 40px;
   border: 3px solid #f3f4f6;
-  border-top: 3px solid #2563eb;
+  border-top: 3px solid #374151;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
