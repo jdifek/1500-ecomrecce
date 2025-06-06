@@ -343,8 +343,15 @@ function addToCart(productId) {
 
   if (product) {
     if (existingItem) {
-      existingItem.quantity += 1;
+      // Если товар уже есть и количество равно 1, удаляем его
+      if (existingItem.quantity === 1) {
+        removeFromCart(productId);
+      } else {
+        // Если количество больше 1, уменьшаем на 1
+        updateQuantity(productId, -1);
+      }
     } else {
+      // Если товара нет в корзине, добавляем с количеством 1
       cart.push({
         ...product,
         quantity: 1
@@ -356,12 +363,12 @@ function addToCart(productId) {
     // Visual feedback
     const button = event.target.closest('button');
     const originalText = button.textContent;
-    button.textContent = currentLanguage === 'de' ? 'Hinzugefügt!' : 'Added!';
-    button.style.background = '#059669';
+    button.textContent = currentLanguage === 'de' ? (existingItem ? 'Entfernt!' : 'Hinzugefügt!') : (existingItem ? 'Removed!' : 'Added!');
+    button.style.background = existingItem ? '#ef4444' : '#059669'; // Красный для удаления, зеленый для добавления
 
     setTimeout(() => {
       button.textContent = originalText;
-      button.style.background = '#2563eb';
+      button.style.background = '#374151';
     }, 1000);
   } else {
     console.error(`Product with ID ${productId} not found`);
