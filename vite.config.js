@@ -1,9 +1,9 @@
-// vite.config.js
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  root: '.', // корень проекта
+  root: '.',
+  publicDir: 'public', // Явно указываем папку public
   build: {
     outDir: 'dist',
-  },
+  }
 })
