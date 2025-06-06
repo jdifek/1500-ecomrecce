@@ -364,6 +364,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .product-price {
@@ -399,6 +400,8 @@ body {
 }
 
 .footer-content {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -1018,4 +1021,47 @@ body {
 
 .product-card {
   animation: fadeIn 0.5s ease forwards;
+}
+
+/* Footer */
+.footer {
+  background: #000000; /* Черный фон */
+  color: #ffffff; /* Белый текст */
+  padding: 1rem 0; /* Компактные отступы */
+}
+
+.footer-content {
+  text-align: center; /* Выравнивание по центру */
+  
+}
+
+.footer-content ul {
+  margin: 0 auto;
+  
+}
+.footer-content p {
+  font-size: 0.875rem; /* Размер шрифта, как на фото */
+  margin: 0;
+  display: inline-flex; /* Для выравнивания текста и логотипов в одну линию */
+  align-items: center; /* Вертикальное выравнивание */
+  gap: 0.5rem; /* Небольшой отступ между элементами */
+}
+
+.list-payment {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  gap: 0.75rem; /* Отступ между логотипами */
+}
+
+.list-payment__item {
+  margin: 0;
+}
+
+.icon--full-color {
+  height: 24px; /* Высота, как указано в SVG */
+  width: 38px; /* Ширина, как указано в SVG */
+  vertical-align: middle;
 }
