@@ -2,121 +2,121 @@
   {
     "id": 1,
     "name": {
-      "de": "Premium Bluetooth Kopfhörer",
-      "en": "Premium Bluetooth Headphones"
+      "de": "Classic Red Zigaretten",
+      "en": "Classic Red Cigarettes"
     },
     "description": {
-      "de": "Hochwertige kabellose Kopfhörer mit aktiver Geräuschunterdrückung und 30 Stunden Akkulaufzeit.",
-      "en": "High-quality wireless headphones with active noise cancellation and 30-hour battery life."
+      "de": "Kräftige Zigaretten mit intensivem Tabakgeschmack und einem Hauch von Würze.",
+      "en": "Bold cigarettes with intense tobacco flavor and a hint of spice."
     },
-    "price": 199.99,
-    "brand": "TechPro",
-    "category": "Audio",
-    "image": "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 7.99,
+    "brand": "SmokeMaster",
+    "category": "Zigaretten",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 2,
     "name": {
-      "de": "Smartwatch Pro",
-      "en": "Smartwatch Pro"
+      "de": "Light Blue Zigaretten",
+      "en": "Light Blue Cigarettes"
     },
     "description": {
-      "de": "Elegante Smartwatch mit Fitness-Tracking, GPS und wasserdichtem Design für den aktiven Lebensstil.",
-      "en": "Elegant smartwatch with fitness tracking, GPS and waterproof design for an active lifestyle."
+      "de": "Milde Zigaretten mit sanftem Geschmack, ideal für einen leichten Genuss.",
+      "en": "Mild cigarettes with a smooth taste, perfect for a light smoking experience."
     },
-    "price": 299.99,
-    "brand": "FitTech",
-    "category": "Wearables",
-    "image": "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 7.49,
+    "brand": "PureLeaf",
+    "category": "Zigaretten",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 3,
     "name": {
-      "de": "Drahtloses Ladegerät",
-      "en": "Wireless Charger"
+      "de": "Menthol Fresh Zigaretten",
+      "en": "Menthol Fresh Cigarettes"
     },
     "description": {
-      "de": "Schnelles drahtloses Ladegerät mit LED-Anzeige, kompatibel mit allen Qi-fähigen Geräten.",
-      "en": "Fast wireless charger with LED indicator, compatible with all Qi-enabled devices."
+      "de": "Erfrischende Menthol-Zigaretten mit einem kühlen und belebenden Geschmack.",
+      "en": "Refreshing menthol cigarettes with a cool and invigorating flavor."
     },
-    "price": 49.99,
-    "brand": "ChargeMaster",
-    "category": "Accessories",
-    "image": "https://images.pexels.com/photos/4526108/pexels-photo-4526108.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 8.29,
+    "brand": "CoolMist",
+    "category": "Menthol",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 4,
     "name": {
-      "de": "USB-C Hub",
-      "en": "USB-C Hub"
+      "de": "Gold Premium Zigaretten",
+      "en": "Gold Premium Cigarettes"
     },
     "description": {
-      "de": "Vielseitiger USB-C Hub mit HDMI, USB 3.0 Ports und SD-Kartenleser für maximale Konnektivität.",
-      "en": "Versatile USB-C hub with HDMI, USB 3.0 ports and SD card reader for maximum connectivity."
+      "de": "Luxuriöse Zigaretten mit einem reichen, vollmundigen Tabakgeschmack.",
+      "en": "Luxurious cigarettes with a rich, full-bodied tobacco flavor."
     },
-    "price": 89.99,
-    "brand": "ConnectPro",
-    "category": "Accessories",
-    "image": "https://images.pexels.com/photos/5582567/pexels-photo-5582567.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 9.99,
+    "brand": "LuxTobacco",
+    "category": "Zigaretten",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 5,
     "name": {
-      "de": "Gaming Maus",
-      "en": "Gaming Mouse"
+      "de": "Slim Line Zigaretten",
+      "en": "Slim Line Cigarettes"
     },
     "description": {
-      "de": "Präzise Gaming-Maus mit RGB-Beleuchtung und anpassbaren DPI-Einstellungen für Profispieler.",
-      "en": "Precision gaming mouse with RGB lighting and customizable DPI settings for professional gamers."
+      "de": "Schlanke Zigaretten mit elegantem Design und mildem Tabakgeschmack.",
+      "en": "Slim cigarettes with an elegant design and mild tobacco flavor."
     },
-    "price": 79.99,
-    "brand": "GameTech",
-    "category": "Gaming",
-    "image": "https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 7.79,
+    "brand": "Elegance",
+    "category": "Slim",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 6,
     "name": {
-      "de": "Laptop Ständer",
-      "en": "Laptop Stand"
+      "de": "Organic Blend Zigaretten",
+      "en": "Organic Blend Cigarettes"
     },
     "description": {
-      "de": "Ergonomischer Laptop-Ständer aus Aluminium für bessere Haltung und verbesserte Kühlung.",
-      "en": "Ergonomic aluminum laptop stand for better posture and improved cooling."
+      "de": "Zigaretten aus biologisch angebautem Tabak für ein reines Raucherlebnis.",
+      "en": "Cigarettes made from organically grown tobacco for a pure smoking experience."
     },
-    "price": 59.99,
-    "brand": "ErgoDesk",
-    "category": "Accessories",
-    "image": "https://images.pexels.com/photos/5582590/pexels-photo-5582590.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 8.99,
+    "brand": "BioSmoke",
+    "category": "Zigaretten",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 7,
     "name": {
-      "de": "Mechanische Tastatur",
-      "en": "Mechanical Keyboard"
+      "de": "Menthol Slim Zigaretten",
+      "en": "Menthol Slim Cigarettes"
     },
     "description": {
-      "de": "Premium mechanische Tastatur mit Cherry MX Switches und RGB-Hintergrundbeleuchtung.",
-      "en": "Premium mechanical keyboard with Cherry MX switches and RGB backlighting."
+      "de": "Schlanke Menthol-Zigaretten mit einem frischen, minzigen Geschmack.",
+      "en": "Slim menthol cigarettes with a fresh, minty flavor."
     },
-    "price": 149.99,
-    "brand": "KeyMaster",
-    "category": "Gaming",
-    "image": "https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 8.49,
+    "brand": "CoolMist",
+    "category": "Menthol",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   },
   {
     "id": 8,
     "name": {
-      "de": "4K Webcam",
-      "en": "4K Webcam"
+      "de": "Vintage Blend Zigaretten",
+      "en": "Vintage Blend Cigarettes"
     },
     "description": {
-      "de": "Ultra-HD Webcam mit Autofokus und Rauschunterdrückung für professionelle Videokonferenzen.",
-      "en": "Ultra-HD webcam with autofocus and noise reduction for professional video conferencing."
+      "de": "Klassische Zigaretten mit einem traditionellen Tabakgeschmack für Kenner.",
+      "en": "Classic cigarettes with a traditional tobacco flavor for connoisseurs."
     },
-    "price": 129.99,
-    "brand": "VisionPro",
-    "category": "Audio",
-    "image": "https://images.pexels.com/photos/4526108/pexels-photo-4526108.jpeg?auto=compress&cs=tinysrgb&w=400"
+    "price": 8.79,
+    "brand": "SmokeMaster",
+    "category": "Zigaretten",
+    "image": "https://varus.ua/img/product/1140/1140/339731"
   }
 ]
