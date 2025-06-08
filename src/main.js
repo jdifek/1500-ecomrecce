@@ -286,6 +286,21 @@ function toggleFilters() {
 function updateResultsCount() {
   resultsCount.textContent = filteredProducts.length;
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slider__slide');
+  let current = 0;
+  const speed = 3000; // 3 секунды
+
+  function updateSlide() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === current);
+    });
+    current = (current + 1) % slides.length;
+  }
+
+  updateSlide(); // первый показ
+  setInterval(updateSlide, speed);
+});
 
 // Render products grid
 function renderProducts() {
